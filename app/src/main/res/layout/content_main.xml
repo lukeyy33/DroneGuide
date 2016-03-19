@@ -59,12 +59,28 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-    <Button
+    <!--<Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Login"
         android:id="@+id/loginBtn"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true" />-->
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Sign in"
+        android:id="@+id/button_signin"
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="6dp"
+        android:layout_centerHorizontal="true" />
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Sign out"
+        android:id="@+id/button_signout"
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="6dp"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
