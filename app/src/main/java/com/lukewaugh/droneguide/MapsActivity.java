@@ -1,5 +1,6 @@
 package com.lukewaugh.droneguide;
 
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
@@ -27,7 +28,7 @@ import com.google.android.gms.location.LocationServices;
 
 public class MapsActivity extends FragmentActivity implements OnStreetViewPanoramaReadyCallback, OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks, GoogleMap.OnMapClickListener, GoogleMap.OnInfoWindowClickListener, GoogleMap.OnMapLongClickListener, GoogleApiClient.OnConnectionFailedListener, GoogleMap.OnMarkerClickListener {
 
-    private GoogleMap mMap = findViewById(R.id.map);
+    private GoogleMap mMap = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map)).getMap();
     private GoogleApiClient mGoogleApiClient;
     private Location mCurrentLocation;
     private LatLng selectedCoords;
@@ -92,7 +93,7 @@ public class MapsActivity extends FragmentActivity implements OnStreetViewPanora
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
+        this.mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
         LatLng sydney = new LatLng(-34, 151);
