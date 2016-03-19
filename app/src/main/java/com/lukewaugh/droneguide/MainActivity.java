@@ -38,26 +38,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-//        Button btnLogin = (Button) findViewById(R.id.loginBtn);
-//        btnLogin.setOnClickListener(new Button.OnClickListener() {
-//            public void onClick(View v){
-//                Intent intent = new Intent(getOuter(), LoginActivity.class);
-//                startActivity(intent);
-//
-//            }
-//        });
-
+        final TextView txtLatEnd = (TextView) findViewById(R.id.latText);
+        final TextView txtLonEnd = (TextView) findViewById(R.id.longText);
 
         Button btnGo = (Button) findViewById(R.id.startBtn);
-        btnGo.setOnClickListener(
-                new Button.OnClickListener(){
-                    public void onClick(View v){
-                        Intent intent = new Intent(getOuter(), MapsActivity.class);
-                        startActivity(intent);
-                    }
-                }
-        );
 
+        btnGo.setOnClickListener(new Button.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(getOuter(), MapsActivity.class);
+                Bundle extras = new Bundle();
+                extras.putString("END_LAT", txtLatEnd.getText().toString());
+                extras.putString("END_LON", txtLonEnd.getText().toString());
+                intent.putExtras(extras);
+                startActivity(intent);
+
+            }
+        });
     }
 
     @Override

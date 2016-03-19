@@ -27,7 +27,7 @@ import com.google.android.gms.location.LocationServices;
 
 public class MapsActivity extends FragmentActivity implements OnStreetViewPanoramaReadyCallback, OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks, GoogleMap.OnMapClickListener, GoogleMap.OnInfoWindowClickListener, GoogleMap.OnMapLongClickListener, GoogleApiClient.OnConnectionFailedListener, GoogleMap.OnMarkerClickListener {
 
-    private GoogleMap mMap = R.layout.;
+    private GoogleMap mMap = findViewById(R.id.map);
     private GoogleApiClient mGoogleApiClient;
     private Location mCurrentLocation;
     private LatLng selectedCoords;
