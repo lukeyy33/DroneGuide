@@ -1,5 +1,6 @@
 package com.lukewaugh.droneguide;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -8,8 +9,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
+
+    public MathClass theMaths;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,14 +23,25 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+//            }
+//        });
+
+        Button btnGo = (Button) findViewById(R.id.startBtn);
+        btnGo.setOnClickListener(
+                new Button.OnClickListener(){
+                    public void onClick(View v){
+                        Intent intent = new Intent(getOuter(), MapsActivity.class);
+                        startActivity(intent);
+                    }
+                }
+        );
+
     }
 
     @Override
@@ -48,5 +64,24 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void getData() {
+
+        TextView latitude, longitude;
+
+        latitude = (TextView) findViewById(R.id.latText);
+        longitude = (TextView) findViewById(R.id.longText);
+
+    }
+
+    public double measureDistance() {
+        //return theMaths.measureDistance();
+        return 0.0f;
+
+    }
+
+    public MainActivity getOuter(){
+        return MainActivity.this;
     }
 }
