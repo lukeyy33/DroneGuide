@@ -2,5 +2,6 @@
     <string name="app_name">DroneGuide</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_maps">Map</string>
-    <string name="google_maps_key">AIzaSyBqJkeJzEJL8klAf-Jzc_c2V1H2qwAHDUA</string>
+    <string name="google_maps_key">AIzaSyBzEOosV7ZCanUQUyLuq-SJ9QXVWf0PTzM</string>
+    <string name="google_app_id">droneguide-1255</string>
 </resources>
