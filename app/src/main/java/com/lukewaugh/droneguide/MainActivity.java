@@ -23,14 +23,15 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
+        Button btnLogin = (Button) findViewById(R.id.loginBtn);
+        btnLogin.setOnClickListener(new Button.OnClickListener() {
+            public void onClick(View v){
+                Intent intent = new Intent(getOuter(), LoginActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
 
         Button btnGo = (Button) findViewById(R.id.startBtn);
         btnGo.setOnClickListener(
