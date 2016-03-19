@@ -12,9 +12,12 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 public class MainActivity extends AppCompatActivity {
 
     public MathClass theMaths;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        final TextView txtLatEnd = (TextView) findViewById(R.id.latText);
+        final TextView txtLonEnd = (TextView) findViewById(R.id.longText);
 
         Button btnLogin = (Button) findViewById(R.id.loginBtn);
         btnLogin.setOnClickListener(new Button.OnClickListener() {
@@ -38,6 +43,10 @@ public class MainActivity extends AppCompatActivity {
                 new Button.OnClickListener(){
                     public void onClick(View v){
                         Intent intent = new Intent(getOuter(), MapsActivity.class);
+                        Bundle extras = new Bundle();
+                        extras.putString("END_LAT",txtLatEnd.getText().toString());
+                        extras.putString("END_LON",txtLonEnd.getText().toString());
+                        intent.putExtras(extras);
                         startActivity(intent);
                     }
                 }
