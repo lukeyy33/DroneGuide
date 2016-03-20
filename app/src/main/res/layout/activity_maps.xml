@@ -1,11 +1,20 @@
-<fragment xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:map="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/map"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.lukewaugh.droneguide.MapsActivity"
-    />
+    tools:context="com.lukewaugh.droneguide.MapsActivity">
 
+    <fragment
+        android:id="@+id/map"
+        class="com.lukewaugh.droneguide.MapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    <fragment
+        android:name="com.google.android.gms.maps.StreetViewPanoramaFragment"
+        android:id="@+id/streetviewpanorama"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</RelativeLayout>
 
 
