@@ -23,11 +23,10 @@ import com.amazonaws.mobileconnectors.cognito.Record;
 
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity {
 
     private IdentityManager identityManager;
 
-    private Button signInButton, signOutButton;
 
     public MathClass theMaths;
 
@@ -44,20 +43,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         final TextView txtLatEnd = (TextView) findViewById(R.id.latText);
         final TextView txtLonEnd = (TextView) findViewById(R.id.longText);
 
-        Button btnGo = (Button) findViewById(R.id.startBtn);
-        setupSignInButtons();
-
-        /*btnGo.setOnClickListener(new Button.OnClickListener() {
+        final Button startBtn = (Button) findViewById(R.id.startBtn);
+        startBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getOuter(), MapsActivity.class);
-                Bundle extras = new Bundle();
-                extras.putString("END_LAT", txtLatEnd.getText().toString());
-                extras.putString("END_LON", txtLonEnd.getText().toString());
-                intent.putExtras(extras);
+                Intent intent = new Intent(MainActivity.this, MapsActivity.class);
                 startActivity(intent);
-
             }
-        });*/
+        });
+
+
     }
 
     @Override
@@ -97,37 +92,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    private void setupSignInButtons() {
 
-        signOutButton = (Button) findViewById(R.id.button_signout);
-        signOutButton.setOnClickListener(this);
-         signInButton = (Button) findViewById(R.id.button_signin);
-        signInButton.setOnClickListener(this);
-        final boolean isUserSignedIn = identityManager.isUserSignedIn();
-        signOutButton.setVisibility(isUserSignedIn ? View.VISIBLE : View.INVISIBLE);
-        signInButton.setVisibility(!isUserSignedIn ? View.VISIBLE : View.INVISIBLE);
-
-    }
-
-
-    @Override
-    public void onClick(final View view) {
-        if (view == signOutButton) {
-            //user already signed in
-            identityManager.signOut();
-            //show sign in
-            signOutButton.setVisibility(View.INVISIBLE);
-            signInButton.setVisibility(View.VISIBLE);
-
-            return;
-        }
-        if (view == signInButton)
-        {
-            //Start sign in  activity
-            startActivity(new Intent(this, SignInActivity.class));
-            return;
-        }
-    }
 
     private void syncUserSettings() {
         // sync only if user is signed in
