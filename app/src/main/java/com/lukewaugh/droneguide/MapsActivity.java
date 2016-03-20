@@ -28,7 +28,8 @@ import com.google.android.gms.location.LocationServices;
 
 public class MapsActivity extends FragmentActivity implements OnStreetViewPanoramaReadyCallback, OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks, GoogleMap.OnMapClickListener, GoogleMap.OnInfoWindowClickListener, GoogleMap.OnMapLongClickListener, GoogleApiClient.OnConnectionFailedListener, GoogleMap.OnMarkerClickListener {
 
-    private GoogleMap mMap;
+    private GoogleMap mMap = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map)).getMap();
+
     private GoogleApiClient mGoogleApiClient;
     private Location mCurrentLocation;
     private LatLng selectedCoords;
@@ -65,13 +66,14 @@ public class MapsActivity extends FragmentActivity implements OnStreetViewPanora
                 .addApi( LocationServices.API )
                 .build();
 
+        initListeners();
         setContentView(R.layout.activity_maps);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-        initListeners();
+       // initListeners();
     }
 
     private void initListeners() {
