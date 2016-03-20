@@ -8,7 +8,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
-public class MapsActivity extends AppCompatActivity {
+import com.google.android.gms.maps.OnStreetViewPanoramaReadyCallback;
+import com.google.android.gms.maps.StreetViewPanorama;
+
+public class MapsActivity extends AppCompatActivity implements OnStreetViewPanoramaReadyCallback {
 
     double endLat, endLon;
 
@@ -59,4 +62,8 @@ public class MapsActivity extends AppCompatActivity {
         super.onStop();
     }
 
+    @Override
+    public void onStreetViewPanoramaReady(StreetViewPanorama streetViewPanorama) {
+
+    }
 }
