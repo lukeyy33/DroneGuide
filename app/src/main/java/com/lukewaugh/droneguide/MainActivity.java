@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         final TextView txtLonEnd = (TextView) findViewById(R.id.longText);
 
         Button btnGo = (Button) findViewById(R.id.startBtn);
+        setupSignInButtons();
 
         btnGo.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
