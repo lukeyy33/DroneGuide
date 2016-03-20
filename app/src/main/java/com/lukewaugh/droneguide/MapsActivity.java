@@ -56,7 +56,4 @@ public class MapsActivity extends AppCompatActivity {
         super.onStop();
     }
 
-
-
-
 }

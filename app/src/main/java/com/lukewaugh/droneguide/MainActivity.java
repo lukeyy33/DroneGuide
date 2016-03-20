@@ -34,6 +34,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        AWSMobileClient.initializeMobileClientIfNecessary(this);
+
+        final AWSMobileClient awsMobileClient = AWSMobileClient.defaultMobileClient();
+
+        identityManager = awsMobileClient.getIdentityManager();
         setContentView(R.layout.activity_main);
 
         final TextView txtLatEnd = (TextView) findViewById(R.id.latText);
@@ -42,7 +47,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button btnGo = (Button) findViewById(R.id.startBtn);
         setupSignInButtons();
 
-        btnGo.setOnClickListener(new Button.OnClickListener() {
+        /*btnGo.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(getOuter(), MapsActivity.class);
                 Bundle extras = new Bundle();
@@ -52,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent);
 
             }
-        });
+        });*/
     }
 
     @Override
