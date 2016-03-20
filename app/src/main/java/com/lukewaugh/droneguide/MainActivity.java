@@ -40,13 +40,14 @@ public class MainActivity extends AppCompatActivity {
         identityManager = awsMobileClient.getIdentityManager();
         setContentView(R.layout.activity_main);
 
-        final TextView txtLatEnd = (TextView) findViewById(R.id.latText);
-        final TextView txtLonEnd = (TextView) findViewById(R.id.longText);
+//        final TextView txtLatEnd = (TextView) findViewById(R.id.latText);
+//        final TextView txtLonEnd = (TextView) findViewById(R.id.longText);
 
         final Button startBtn = (Button) findViewById(R.id.startBtn);
         startBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                System.out.println("Button Click");
                 Intent intent = new Intent(MainActivity.this, MapsActivity.class);
                 startActivity(intent);
             }
@@ -81,8 +82,8 @@ public class MainActivity extends AppCompatActivity {
 
         TextView latitude, longitude;
 
-        latitude = (TextView) findViewById(R.id.latText);
-        longitude = (TextView) findViewById(R.id.longText);
+//        latitude = (TextView) findViewById(R.id.latText);
+//        longitude = (TextView) findViewById(R.id.longText);
 
     }
 

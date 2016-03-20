@@ -10,6 +10,8 @@ import android.widget.Button;
 
 import com.google.android.gms.maps.OnStreetViewPanoramaReadyCallback;
 import com.google.android.gms.maps.StreetViewPanorama;
+import com.google.android.gms.maps.StreetViewPanoramaFragment;
+import com.google.android.gms.maps.model.LatLng;
 
 public class MapsActivity extends AppCompatActivity implements OnStreetViewPanoramaReadyCallback {
 
@@ -21,17 +23,20 @@ public class MapsActivity extends AppCompatActivity implements OnStreetViewPanor
         super.onCreate(savedInstanceState);
 
         Intent intent = getIntent();
-        Bundle extras = intent.getExtras();
-        String end_lat_string = extras.getString("END_LAT");
-        String end_lon_string = extras.getString("END_LON");
+//        Bundle extras = intent.getExtras();
+//        String end_lat_string = extras.getString("END_LAT");
+//        String end_lon_string = extras.getString("END_LON");
 
-        if (!end_lat_string.equals("") && !end_lon_string.equals("")) {
-            endLat = Double.parseDouble(end_lat_string);
-            endLon = Double.parseDouble(end_lon_string);
-        }
+//        if (!end_lat_string.equals("") && !end_lon_string.equals("")) {
+//            endLat = Double.parseDouble(end_lat_string);
+//            endLon = Double.parseDouble(end_lon_string);
+//        }
         setContentView(R.layout.activity_maps);
 
-
+        StreetViewPanoramaFragment streetViewPanoramaFragment =
+                (StreetViewPanoramaFragment) getFragmentManager()
+                        .findFragmentById(R.id.streetviewpanorama);
+        streetViewPanoramaFragment.getStreetViewPanoramaAsync(this);
     }
 
 
@@ -63,7 +68,7 @@ public class MapsActivity extends AppCompatActivity implements OnStreetViewPanor
     }
 
     @Override
-    public void onStreetViewPanoramaReady(StreetViewPanorama streetViewPanorama) {
-
+    public void onStreetViewPanoramaReady(StreetViewPanorama panorama) {
+        panorama.setPosition(new LatLng(-33.87365, 151.20689));
     }
 }

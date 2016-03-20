@@ -89,26 +89,26 @@ public class SignInActivity extends Activity {
         signInManager = SignInManager.getInstance(this);
         signInManager.setResultsHandler(this, new SignInResultsHandler());
         // Initialize sign-in buttons.
-        googleOnClickListener =
-                signInManager.initializeSignInButton(GoogleSignInProvider.class, findViewById(R.id.g_login_button));
-        if (googleOnClickListener != null) {
-            // if the onClick listener was null, initializeSignInButton will have removed the view.
-            this.findViewById(R.id.g_login_button).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(final View view) {
-                    final Activity thisActivity = SignInActivity.this;
-                    if (ContextCompat.checkSelfPermission(thisActivity,
-                            Manifest.permission.GET_ACCOUNTS) != PackageManager.PERMISSION_GRANTED) {
-                        ActivityCompat.requestPermissions(SignInActivity.this,
-                                new String[]{Manifest.permission.GET_ACCOUNTS},
-                                GET_ACCOUNTS_PERMISSION_REQUEST_CODE);
-                        return;
-                    }
-                    // call the Google onClick listener.
-                    googleOnClickListener.onClick(view);
-                }
-            });
-        }
+//        googleOnClickListener =
+//                signInManager.initializeSignInButton(GoogleSignInProvider.class, findViewById(R.id.g_login_button));
+//        if (googleOnClickListener != null) {
+//            // if the onClick listener was null, initializeSignInButton will have removed the view.
+//            this.findViewById(R.id.g_login_button).setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(final View view) {
+//                    final Activity thisActivity = SignInActivity.this;
+//                    if (ContextCompat.checkSelfPermission(thisActivity,
+//                            Manifest.permission.GET_ACCOUNTS) != PackageManager.PERMISSION_GRANTED) {
+//                        ActivityCompat.requestPermissions(SignInActivity.this,
+//                                new String[]{Manifest.permission.GET_ACCOUNTS},
+//                                GET_ACCOUNTS_PERMISSION_REQUEST_CODE);
+//                        return;
+//                    }
+//                    // call the Google onClick listener.
+//                    googleOnClickListener.onClick(view);
+//                }
+//            });
+
         Button homeBtn = (Button) findViewById(R.id.homeBtn);
         homeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -121,14 +121,14 @@ public class SignInActivity extends Activity {
     @Override
     public void onRequestPermissionsResult(final int requestCode,
                                            final String permissions[], final int[] grantResults) {
-        if (requestCode == GET_ACCOUNTS_PERMISSION_REQUEST_CODE) {
-            if (grantResults.length > 0
-                    && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                this.findViewById(R.id.g_login_button).callOnClick();
-            } else {
-                Log.i(LOG_TAG, "Permissions not granted for Google sign-in. :(");
-            }
-        }
+//        if (requestCode == GET_ACCOUNTS_PERMISSION_REQUEST_CODE) {
+//            if (grantResults.length > 0
+//                    && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+//                this.findViewById(R.id.g_login_button).callOnClick();
+//            } else {
+//                Log.i(LOG_TAG, "Permissions not granted for Google sign-in. :(");
+//            }
+//        }
     }
     @Override
     protected void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
