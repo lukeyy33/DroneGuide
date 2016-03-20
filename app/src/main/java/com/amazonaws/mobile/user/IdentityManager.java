@@ -56,6 +56,10 @@ public class IdentityManager {
     /** Executor service for obtaining credentials in a background thread. */
     private final ExecutorService executorService = Executors.newFixedThreadPool(2);
 
+    public IdentityManager() {
+
+    }
+
     /**
      * Constructor. Initializes the cognito credentials provider.
      * @param appContext the application context.

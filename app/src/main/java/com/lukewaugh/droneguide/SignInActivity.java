@@ -19,6 +19,7 @@ import com.amazonaws.mobile.AWSMobileClient;
 import com.amazonaws.mobile.user.IdentityManager;
 
 public class SignInActivity extends Activity{
+    private CRUD crud = new CRUD();
     //rivate final static String LOG_TAG = SignInActivity.class.getSimpleName();
     //private SignInManager signInManager;
     /** Permission Request Code (Must be < 256). */
@@ -63,6 +64,10 @@ public class SignInActivity extends Activity{
                 .getIdentityManager();
         fetchUserIdentity();
         return mFragmentView;
+
+
+
+
     }
 
     @Override

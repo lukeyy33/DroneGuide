@@ -27,15 +27,11 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.2.1'
     compile 'com.android.support:design:23.2.1'
     compile 'com.google.maps.android:android-maps-utils:0.4.+'
-
     compile 'com.amazonaws:aws-android-sdk-s3:2.2.11'
     compile 'com.amazonaws:aws-android-sdk-core:2.2.11'
     compile 'com.amazonaws:aws-android-sdk-cognito:2.2.11'
-
     compile 'com.google.android.gms:play-services:8.4.0'
     compile 'com.android.support:support-v4:23.2.1'
-
-
-
-
+    compile files('libs/aws-java-sdk-1.10.62.jar')
+    compile files('libs/aws-java-sdk-1.10.62-sources.jar')
 }
